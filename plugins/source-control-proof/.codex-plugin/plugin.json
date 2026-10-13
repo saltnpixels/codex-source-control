@@ -1,0 +1,16 @@
+{
+  "name": "source-control-proof",
+  "version": "0.5.0",
+  "description": "Local Source Control with project switching, image/source/diff previews and per-file staging",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Source Control",
+    "shortDescription": "See actual local branches and uncommitted files",
+    "developerName": "Eric Greenfield",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "logo": "./assets/branch.svg",
+    "composerIcon": "./assets/branch.svg",
+    "brandColor": "#213c39"
+  }
+}

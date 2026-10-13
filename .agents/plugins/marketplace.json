@@ -1,0 +1,10 @@
+{
+  "name": "eric-source-control-proof",
+  "interface": {"displayName": "Source Control for Codex"},
+  "plugins": [{
+    "name": "source-control-proof",
+    "source": {"source": "local", "path": "./plugins/source-control-proof"},
+    "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+    "category": "Productivity"
+  }]
+}

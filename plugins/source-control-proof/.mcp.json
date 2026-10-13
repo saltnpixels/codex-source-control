@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "source-control-proof": {
+      "command": "node",
+      "args": ["./server.mjs"],
+      "cwd": ".",
+      "env_vars": ["CODEX_HOME"]
+    }
+  }
+}

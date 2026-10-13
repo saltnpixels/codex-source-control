@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Source Control</title><style>/* PANEL_CSS */</style></head><body>
+<div class="sc-app">
+<header class="sc-header"><div class="sc-brand"><span class="sc-brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12M18 9a9 9 0 0 1-9 9"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/></svg></span><h1>Source Control</h1><span class="sc-local">Local Git</span></div><button id="refresh" class="sc-refresh" type="button" title="Refresh Git status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6.1 7a7 7 0 0 1 11.5-1L20 9M4 15l2.4 3A7 7 0 0 0 17.9 17"/></svg><span>Refresh</span></button></header>
+<div class="sc-repository">
+<button id="project" class="sc-project-trigger" type="button" aria-label="Choose repository" aria-expanded="false" aria-controls="project-popover" aria-haspopup="dialog"><span class="sc-project-title" id="project-label">Loading repository…</span><svg class="sc-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg></button>
+<div id="project-popover" class="sc-project-popover" role="dialog" aria-label="Choose repository" hidden>
+<div class="sc-search"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input id="project-search" aria-label="Search repositories" placeholder="Search repositories or branches…" autocomplete="off"><kbd>esc</kbd></div>
+<div id="project-list" class="sc-project-list"></div>
+<div class="sc-picker-footer"><button id="open-custom" type="button"><span aria-hidden="true">＋</span> Open another checkout…</button><form id="custom-form" hidden><label for="custom-path">Checkout path</label><div class="sc-custom-row"><input id="custom-path" placeholder="/absolute/path/to/checkout" autocomplete="off"><button type="submit">Open</button></div></form></div>
+</div></div>
+<div class="sc-repo-info"><span class="sc-branch-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3v12M18 9a9 9 0 0 1-9 9"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/></svg><span id="branch">Connecting…</span></span><span class="sc-change-summary" id="change-summary"></span></div>
+<div id="checkout" class="sc-checkout-path"></div>
+<p id="error" role="alert" hidden></p>
+<main class="sc-workspace"><nav class="sc-file-list" aria-label="Changed files"><div class="sc-list-heading"><span>Changes</span><span id="total-count" class="sc-count">0</span></div><div id="files"></div></nav>
+<section class="sc-viewer" aria-label="File viewer"><div class="sc-viewer-toolbar"><div class="sc-file-heading"><strong id="file-title">File preview</strong><span id="file-context">Select a file to inspect</span></div><div class="sc-view-modes" role="group" aria-label="File view"><button id="diff-mode" type="button" aria-pressed="true">Diff</button><button id="source-mode" type="button" aria-pressed="false">Source</button></div></div>
+<div id="view-message" class="sc-view-message"><span class="sc-empty-mark" aria-hidden="true">±</span><strong>Select a file to review</strong><span>Compare changes or read the source.</span></div><div id="code" class="sc-code" tabindex="0" aria-label="File content" hidden></div><div id="images" class="sc-images" aria-label="Image preview" hidden></div></section></main>
+<footer class="sc-footer"><span id="staging-message" class="sc-action-message" role="status" aria-live="polite"></span><span class="sc-updated"><span class="sc-status-dot" id="status-dot"></span><span id="time">Connecting to Git</span></span></footer>
+<details class="sc-diagnostics"><summary>Checkout details</summary><div id="context"></div><pre id="diagnostics">Waiting for host initialization</pre></details>
+</div><script>/* PANEL_JS */</script></body></html>
