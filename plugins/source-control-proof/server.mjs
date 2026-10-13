@@ -8,7 +8,7 @@ import { updateStaging } from './git-staging.mjs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 
-const uri = 'ui://source-control-proof/panel-v5.html';
+const uri = 'ui://source-control-proof/panel-v6.html';
 const icon = { src: 'data:image/svg+xml;base64,' + (await readFile(new URL('./assets/branch.svg', import.meta.url))).toString('base64'), mimeType: 'image/svg+xml', sizes: ['any'] };
 const inputSchema = { type: 'object', properties: { repoPath: { type: 'string', description: 'Absolute checkout path. Opening the panel without one lets you choose from Codex projects.' } }, additionalProperties: false };
 const annotations = { readOnlyHint: true, destructiveHint: false, openWorldHint: false };
@@ -38,14 +38,14 @@ export async function panelHtml() {
 }
 export async function handle(method, params = {}) {
   switch (method) {
-    case 'initialize': return { protocolVersion: '2025-11-25', capabilities: { tools: {}, resources: {} }, serverInfo: { name: 'source-control-proof', version: '0.5.0', icons: [icon] } };
+    case 'initialize': return { protocolVersion: '2025-11-25', capabilities: { tools: {}, resources: {} }, serverInfo: { name: 'source-control-proof', version: '0.5.1', icons: [icon] } };
     case 'ping': return {};
     case 'tools/list': return { tools };
     case 'resources/list': return { resources: [{ uri, name: 'source-control-panel', mimeType: 'text/html;profile=mcp-app' }] };
     case 'resources/templates/list': return { resourceTemplates: [] };
     case 'prompts/list': return { prompts: [] };
     case 'resources/read': {
-      if (![uri, 'ui://source-control-proof/panel-v1.html', 'ui://source-control-proof/panel-v2.html', 'ui://source-control-proof/panel-v3.html', 'ui://source-control-proof/panel-v4.html'].includes(params.uri)) throw new Error('Unknown resource');
+      if (![uri, 'ui://source-control-proof/panel-v1.html', 'ui://source-control-proof/panel-v2.html', 'ui://source-control-proof/panel-v3.html', 'ui://source-control-proof/panel-v4.html', 'ui://source-control-proof/panel-v5.html'].includes(params.uri)) throw new Error('Unknown resource');
       return { contents: [{ uri: params.uri, mimeType: 'text/html;profile=mcp-app', text: await panelHtml(),
         _meta: { ui: { prefersBorder: false }, 'openai/ui': { preferredDisplayMode: 'fullscreen', availableDisplayModes: ['inline', 'fullscreen'] } } }] };
     }

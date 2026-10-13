@@ -60,7 +60,8 @@ try {
     pending.set(next,msg=>{clearTimeout(timer);res(msg)});
     child.stdin.write(JSON.stringify({jsonrpc:'2.0',id:next,method,params})+'\n');
   });
-  assert.equal((await rpc('initialize')).result.serverInfo.version,'0.5.0');
+  const manifest = JSON.parse(await readFile(join(relocated,'.codex-plugin/plugin.json'),'utf8'));
+  assert.equal((await rpc('initialize')).result.serverInfo.version,manifest.version);
   assert((await rpc('tools/call',{name:'source_control_panel'})).result.structuredContent.needsCheckout);
   assert.equal((await rpc('tools/call',{name:'git_status',arguments:{repoPath:roots[1]}})).result.structuredContent.branch,'branch-1');
   console.log('PASS: live multi-root catalog, external rename/removal, authoritative empty database, legacy discovery, unavailable catalog, no implicit fallback, relocated portable MCP launch.');

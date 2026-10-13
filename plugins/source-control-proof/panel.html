@@ -10,8 +10,8 @@
 <div id="project-list" class="sc-project-list"></div>
 <div class="sc-picker-footer"><button id="open-custom" type="button"><span aria-hidden="true">＋</span> Open another checkout…</button><form id="custom-form" hidden><label for="custom-path">Checkout path</label><div class="sc-custom-row"><input id="custom-path" placeholder="/absolute/path/to/checkout" autocomplete="off"><button type="submit">Open</button></div></form></div>
 </div></div>
-<div class="sc-repo-info"><span class="sc-branch-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3v12M18 9a9 9 0 0 1-9 9"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/></svg><span id="branch">Connecting…</span></span><span class="sc-change-summary" id="change-summary"></span></div>
-<div id="checkout" class="sc-checkout-path"></div>
+<div id="repo-info" class="sc-repo-info" hidden><span class="sc-branch-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3v12M18 9a9 9 0 0 1-9 9"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/></svg><span id="branch"></span></span><span class="sc-change-summary" id="change-summary"></span></div>
+<div id="checkout" class="sc-checkout-path" hidden></div>
 <p id="error" role="alert" hidden></p>
 <main class="sc-workspace"><nav class="sc-file-list" aria-label="Changed files"><div class="sc-list-heading"><span>Changes</span><span id="total-count" class="sc-count">0</span></div><div id="files"></div></nav>
 <section class="sc-viewer" aria-label="File viewer"><div class="sc-viewer-toolbar"><div class="sc-file-heading"><strong id="file-title">File preview</strong><span id="file-context">Select a file to inspect</span></div><div class="sc-view-modes" role="group" aria-label="File view"><button id="diff-mode" type="button" aria-pressed="true">Diff</button><button id="source-mode" type="button" aria-pressed="false">Source</button></div></div>

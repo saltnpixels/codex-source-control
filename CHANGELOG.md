@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.1 beta — 2026-10-13
+
+- Show one clickable repository picker before selection; branch details appear after a repository loads.
+- Add a real Codex screenshot to the README.
+
 ## 0.5.0 beta — 2026-10-13
 
 Initial public beta for Codex desktop.

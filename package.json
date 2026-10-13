@@ -1,6 +1,6 @@
 {
   "name": "codex-source-control",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "description": "Local Git source control panel for Codex desktop",
   "license": "MIT",

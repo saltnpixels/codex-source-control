@@ -1,6 +1,6 @@
 {
   "name": "source-control-proof",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Local Source Control with project switching, image/source/diff previews and per-file staging",
   "mcpServers": "./.mcp.json",
   "interface": {

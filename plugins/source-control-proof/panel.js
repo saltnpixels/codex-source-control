@@ -161,6 +161,7 @@ function renderFiles() {
 }
 function renderStatus(data) {
   state.checkout = data.checkout; state.status = data;
+  el('repo-info').hidden = false; el('checkout').hidden = false;
   for (const project of state.projects) for (const checkout of project.checkouts) if (checkout.path === data.checkout) checkout.branch = data.branch;
   el('branch').textContent = data.branch; el('checkout').textContent = shortPath(data.checkout); el('checkout').title = data.checkout;
   const count = new Set(groups.flatMap(([group]) => data[group].map(file => file.path))).size;
@@ -212,6 +213,7 @@ async function changeStaging(path, group) {
 }
 async function switchCheckout(checkout) {
   state.epoch++; state.viewRequest++; state.checkout = checkout; state.selection = null; state.status = null;
+  el('repo-info').hidden = true; el('checkout').hidden = true;
   el('staging-message').textContent = '';
   el('branch').textContent = 'Loading checkout…'; el('checkout').textContent = checkout; el('context').textContent = ''; el('time').textContent = '';
   el('checkout').title = checkout; el('total-count').textContent = '0'; el('change-summary').textContent = 'Reading Git status…';
@@ -306,14 +308,14 @@ document.addEventListener('keydown', event => {
 el('diff-mode').onclick = () => setMode('diff'); el('source-mode').onclick = () => setMode('source');
 (async () => {
   try {
-    const host = await request('ui/initialize', { appInfo: { name: 'Source Control', version: '0.5.0' }, appCapabilities: {}, protocolVersion: '2026-01-26' });
+    const host = await request('ui/initialize', { appInfo: { name: 'Source Control', version: '0.5.1' }, appCapabilities: {}, protocolVersion: '2026-01-26' });
     state.hostContext = host.hostContext || {}; if (state.hostContext.theme) document.documentElement.style.colorScheme = state.hostContext.theme;
     window.parent.postMessage({ jsonrpc: '2.0', method: 'ui/notifications/initialized' }, '*');
     const preferences = window.openai?.widgetState; if (preferences?.mode === 'source') setMode('source');
     await refreshProjects();
     if (typeof preferences?.checkout === 'string') await switchCheckout(preferences.checkout);
     else if (!state.checkout) {
-      el('branch').textContent = 'Choose a repository'; el('time').textContent = 'Ready'; renderFiles();
+      el('time').textContent = 'Ready'; renderFiles();
       openPicker();
     }
     setInterval(() => { if (!document.hidden) refresh(); }, 5000);

@@ -5,9 +5,11 @@
 
 See what changed in your local Git repositories while you work in Codex desktop.
 
-**Public beta · v0.5.0**
+**Public beta · v0.5.1**
 
 Source Control adds a panel with your current branch, changed files, source and diff views, image previews, and per-file staging controls. It reads Codex's saved projects automatically, including projects with multiple repositories.
+
+![Source Control in Codex desktop showing changed files, staging controls, and an HTML diff](docs/source-control.jpg)
 
 ## Features
 
@@ -36,7 +38,7 @@ This repository is a GitHub-backed marketplace. It is not a listing in OpenAI's 
 ### Install a pinned version
 
 ```sh
-codex plugin marketplace add saltnpixels/codex-source-control --ref v0.5.0
+codex plugin marketplace add saltnpixels/codex-source-control --ref v0.5.1
 codex plugin add source-control-proof@eric-source-control-proof
 ```
 
